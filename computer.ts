@@ -1,3 +1,7 @@
+// SRP => A class should have only one reason to change
+// DIP => A High level module should not depend on a Low Level module,
+    // instead both should depend on abstraction
+
 /*
     Computer class:
     - Can input data
@@ -7,6 +11,20 @@
     - can connect to WI-FI
     - can connect bluetooth device
 */ 
+
+class InputDevice{
+    input(){
+
+    }
+}
+
+class Keyboard extends InputDevice{
+    input(){
+        console.log("Inputing data from keyboard...");
+    }
+}
+
+
 class Computer{
     // Fields
     public name: string;
@@ -14,10 +32,11 @@ class Computer{
     public model: string;
     public category: string = "generic";
     public internalMemory = {}
+    public inputDevice:InputDevice;
 
+    // Methods
     input(data:any){
-        console.log("Inputing data from keyboard...");
-        this.store(data)
+       this.inputDevice.input();
     }
 
     store(data:any){
