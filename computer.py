@@ -11,13 +11,13 @@ class InputDevice(ABC):
 # Implementation => Has the details
 class Mouse(InputDevice):
     
-    def input():
+    def input(self):
         print('Inputing data from Mouse...')
         return {}
 
 class Keyboard(InputDevice):
     
-    def input():
+    def input(self):
         print('Inputing data from keyboard')
         return {}
 
@@ -31,5 +31,9 @@ class Computer():
     def input(self):
         return self.inputDevice.input()
 
-
+computer1 = Computer()
+computer1.inputDevice = Keyboard()
+computer1.input()
+computer1.inputDevice = Mouse()
+computer1.input()
 
