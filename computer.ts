@@ -12,15 +12,19 @@
     - can connect bluetooth device
 */ 
 
-class InputDevice{
-    input(){
-
-    }
+abstract class InputDevice{
+    abstract input(): any;
 }
 
 class Keyboard extends InputDevice{
     input(){
         console.log("Inputing data from keyboard...");
+    }
+}
+
+class Mouse extends InputDevice{
+    input(){
+        console.log("Inputing data from Mouse...");
     }
 }
 
@@ -32,10 +36,11 @@ class Computer{
     public model: string;
     public category: string = "generic";
     public internalMemory = {}
+
     public inputDevice:InputDevice;
 
     // Methods
-    input(data:any){
+    input(){
        this.inputDevice.input();
     }
 
@@ -65,9 +70,12 @@ class Computer{
 
 // Computer Objects
 let computer1 = new Computer();
+computer1.inputDevice = new Keyboard()
+computer1.inputDevice = new Mouse()
+
 
 function testComputer(computer:Computer){
-    computer.input({"name":"senjack"});
+    computer.input();
     computer.retrieve("name");
     computer.output(computer.category);
     computer.connectToWIFI();

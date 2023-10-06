@@ -37,8 +37,6 @@ var __assign = (this && this.__assign) || function () {
 var InputDevice = /** @class */ (function () {
     function InputDevice() {
     }
-    InputDevice.prototype.input = function () {
-    };
     return InputDevice;
 }());
 var Keyboard = /** @class */ (function (_super) {
@@ -51,13 +49,23 @@ var Keyboard = /** @class */ (function (_super) {
     };
     return Keyboard;
 }(InputDevice));
+var Mouse = /** @class */ (function (_super) {
+    __extends(Mouse, _super);
+    function Mouse() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Mouse.prototype.input = function () {
+        console.log("Inputing data from Mouse...");
+    };
+    return Mouse;
+}(InputDevice));
 var Computer = /** @class */ (function () {
     function Computer() {
         this.category = "generic";
         this.internalMemory = {};
     }
     // Methods
-    Computer.prototype.input = function (data) {
+    Computer.prototype.input = function () {
         this.inputDevice.input();
     };
     Computer.prototype.store = function (data) {
@@ -81,8 +89,10 @@ var Computer = /** @class */ (function () {
 }());
 // Computer Objects
 var computer1 = new Computer();
+computer1.inputDevice = new Keyboard();
+computer1.inputDevice = new Mouse();
 function testComputer(computer) {
-    computer.input({ "name": "senjack" });
+    computer.input();
     computer.retrieve("name");
     computer.output(computer.category);
     computer.connectToWIFI();

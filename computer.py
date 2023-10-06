@@ -1,20 +1,35 @@
-# Overriding
+from abc import ABC, abstractmethod
 
-class Person:
+# Abstraction => No details but only rules
+class InputDevice(ABC):
+
+    @abstractmethod
+    def input() -> any:
+        pass
+
+
+# Implementation => Has the details
+class Mouse(InputDevice):
+    
+    def input():
+        print('Inputing data from Mouse...')
+        return {}
+
+class Keyboard(InputDevice):
+    
+    def input():
+        print('Inputing data from keyboard')
+        return {}
+
+
+
+class Computer():
     # Fields
+    inputDevice: InputDevice
 
     # Methods
-    def talk(self):
-        print('I am a person')
-
-class Man(Person):
-    # Fields
-
-    # Methods
-    def talk(self):
-        print('I am a Man')
+    def input(self):
+        return self.inputDevice.input()
 
 
 
-p1 = Man()
-p1.talk()
