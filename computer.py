@@ -22,18 +22,17 @@ class Keyboard(InputDevice):
         return {}
 
 
-
 class Computer():
     # Fields
-    inputDevice: InputDevice
+    __inputDevice: InputDevice
 
     # Methods
-    def input(self):
-        return self.inputDevice.input()
+    def __init__(self, inputDevice: InputDevice):
+        self.__inputDevice = inputDevice
 
-computer1 = Computer()
-computer1.inputDevice = Keyboard()
-computer1.input()
-computer1.inputDevice = Mouse()
+    def input(self):
+        return self.__inputDevice.input()
+
+computer1 = Computer(Keyboard())
 computer1.input()
 

@@ -37,9 +37,13 @@ class Computer{
     public category: string = "generic";
     public internalMemory = {}
 
-    public inputDevice:InputDevice;
+    private inputDevice:InputDevice;
 
     // Methods
+    constructor(inputDevice:InputDevice){
+        this.inputDevice = inputDevice
+    }
+
     input(){
        this.inputDevice.input();
     }
@@ -67,12 +71,10 @@ class Computer{
     }
 }
 
+class Laptop extends Computer{}
 
 // Computer Objects
-let computer1 = new Computer();
-computer1.inputDevice = new Keyboard()
-computer1.inputDevice = new Mouse()
-
+let computer1 = new Computer(new Keyboard());
 
 function testComputer(computer:Computer){
     computer.input();

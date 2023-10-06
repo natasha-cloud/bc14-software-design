@@ -60,11 +60,12 @@ var Mouse = /** @class */ (function (_super) {
     return Mouse;
 }(InputDevice));
 var Computer = /** @class */ (function () {
-    function Computer() {
+    // Methods
+    function Computer(inputDevice) {
         this.category = "generic";
         this.internalMemory = {};
+        this.inputDevice = inputDevice;
     }
-    // Methods
     Computer.prototype.input = function () {
         this.inputDevice.input();
     };
@@ -87,10 +88,15 @@ var Computer = /** @class */ (function () {
     };
     return Computer;
 }());
+var Laptop = /** @class */ (function (_super) {
+    __extends(Laptop, _super);
+    function Laptop() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return Laptop;
+}(Computer));
 // Computer Objects
-var computer1 = new Computer();
-computer1.inputDevice = new Keyboard();
-computer1.inputDevice = new Mouse();
+var computer1 = new Computer(new Keyboard());
 function testComputer(computer) {
     computer.input();
     computer.retrieve("name");
