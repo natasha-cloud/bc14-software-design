@@ -10,7 +10,7 @@
     - Can output data
     - can connect to WI-FI
     - can connect bluetooth device
-*/ 
+*/
 
 abstract class InputDevice{
     abstract input(): any;
@@ -31,11 +31,11 @@ class Mouse extends InputDevice{
 
 class Computer{
     // Fields
-    public name: string;
-    public brand: string;
-    public model: string;
-    public category: string = "generic";
-    public internalMemory = {}
+        // public name: string;
+        // public brand: string;
+        // public model: string;
+        // public category: string = "generic";
+        // public internalMemory = {}
 
     private inputDevice:InputDevice;
 
@@ -48,39 +48,54 @@ class Computer{
        this.inputDevice.input();
     }
 
-    store(data:any){
-        console.log("Storing data into internal memory...");
-        this.internalMemory = {...this.internalMemory, ...data}
+    setInputDevice(inputDevice:InputDevice){
+        this.inputDevice = inputDevice;
     }
 
-    retrieve(key:string):any{
-        console.log("Retrieving data from internal memory...");
-        return this.internalMemory[key];
+    getInputDevice(){
+        return this.inputDevice
     }
 
-    output(information: any){
-        console.log(information);
-    }
+    // store(data:any){
+    //     console.log("Storing data into internal memory...");
+    //     this.internalMemory = {...this.internalMemory, ...data}
+    // }
 
-    connectToWIFI(){
-        console.log("Connecting to WI-FI");
-    }
+    // retrieve(key:string):any{
+    //     console.log("Retrieving data from internal memory...");
+    //     return this.internalMemory[key];
+    // }
 
-    connectToBluetoothDevice(){
-        console.log("Connecting to Bluetooth Device...");
-    }
+    // output(information: any){
+    //     console.log(information);
+    // }
+
+    // connectToWIFI(){
+    //     console.log("Connecting to WI-FI");
+    // }
+
+    // connectToBluetoothDevice(){
+    //     console.log("Connecting to Bluetooth Device...");
+    // }
 }
-
-class Laptop extends Computer{}
 
 // Computer Objects
 let computer1 = new Computer(new Keyboard());
 
+// Change inpute device dynamically using a setter
+computer1.setInputDevice(new Mouse());
+computer1.setInputDevice(new Keyboard());
+
+// Access the value of a private field using a getter
+computer1.setInputDevice(new Mouse());
+console.log(computer1.getInputDevice());
+
+
 function testComputer(computer:Computer){
     computer.input();
-    computer.retrieve("name");
-    computer.output(computer.category);
-    computer.connectToWIFI();
-    computer.connectToBluetoothDevice();
+    // computer.retrieve("name");
+    // computer.output(computer.category);
+    // computer.connectToWIFI();
+    // computer.connectToBluetoothDevice();
 }
 testComputer(computer1);

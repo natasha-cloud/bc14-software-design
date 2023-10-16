@@ -33,6 +33,6 @@ class Computer():
     def input(self):
         return self.__inputDevice.input()
 
-computer1 = Computer(Keyboard())
+computer1 = Computer(Mouse())
 computer1.input()
 

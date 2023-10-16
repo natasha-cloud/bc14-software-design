@@ -14,17 +14,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 /*
     Computer class:
     - Can input data
@@ -62,46 +51,32 @@ var Mouse = /** @class */ (function (_super) {
 var Computer = /** @class */ (function () {
     // Methods
     function Computer(inputDevice) {
-        this.category = "generic";
-        this.internalMemory = {};
         this.inputDevice = inputDevice;
     }
     Computer.prototype.input = function () {
         this.inputDevice.input();
     };
-    Computer.prototype.store = function (data) {
-        console.log("Storing data into internal memory...");
-        this.internalMemory = __assign(__assign({}, this.internalMemory), data);
+    Computer.prototype.setInputDevice = function (inputDevice) {
+        this.inputDevice = inputDevice;
     };
-    Computer.prototype.retrieve = function (key) {
-        console.log("Retrieving data from internal memory...");
-        return this.internalMemory[key];
-    };
-    Computer.prototype.output = function (information) {
-        console.log(information);
-    };
-    Computer.prototype.connectToWIFI = function () {
-        console.log("Connecting to WI-FI");
-    };
-    Computer.prototype.connectToBluetoothDevice = function () {
-        console.log("Connecting to Bluetooth Device...");
+    Computer.prototype.getInputDevice = function () {
+        return this.inputDevice;
     };
     return Computer;
 }());
-var Laptop = /** @class */ (function (_super) {
-    __extends(Laptop, _super);
-    function Laptop() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return Laptop;
-}(Computer));
 // Computer Objects
 var computer1 = new Computer(new Keyboard());
+// Change inpute device dynamically using a setter
+computer1.setInputDevice(new Mouse());
+computer1.setInputDevice(new Keyboard());
+// Access the value of a private field using a getter
+computer1.setInputDevice(new Mouse());
+console.log(computer1.getInputDevice());
 function testComputer(computer) {
     computer.input();
-    computer.retrieve("name");
-    computer.output(computer.category);
-    computer.connectToWIFI();
-    computer.connectToBluetoothDevice();
+    // computer.retrieve("name");
+    // computer.output(computer.category);
+    // computer.connectToWIFI();
+    // computer.connectToBluetoothDevice();
 }
 testComputer(computer1);
