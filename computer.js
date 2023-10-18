@@ -48,11 +48,13 @@ var Mouse = /** @class */ (function (_super) {
     };
     return Mouse;
 }(InputDevice));
+// Supertype / Contract
 var Computer = /** @class */ (function () {
     // Methods
     function Computer(inputDevice) {
         this.inputDevice = inputDevice;
     }
+    // Input
     Computer.prototype.input = function () {
         this.inputDevice.input();
     };
@@ -62,21 +64,89 @@ var Computer = /** @class */ (function () {
     Computer.prototype.getInputDevice = function () {
         return this.inputDevice;
     };
+    // Process
+    Computer.prototype.process = function () {
+        console.log("process with Intel processor...");
+    };
+    // Store
+    Computer.prototype.store = function (data) {
+        console.log("Storing data into internal memory...");
+    };
+    // Retrieve
+    Computer.prototype.retrieve = function (key) {
+        console.log("Retrieving data from internal memory...");
+    };
+    // Output
+    Computer.prototype.output = function (information) {
+        console.log(information);
+    };
     return Computer;
 }());
+// Is-A Relationship LSP & ISP
+var Desktop = /** @class */ (function (_super) {
+    __extends(Desktop, _super);
+    function Desktop() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // We can add extra functionality to this class
+    Desktop.prototype.balance = function () { };
+    Desktop.prototype.connectToWIFI = function () {
+        console.log('Connecting to wifi.');
+    };
+    Desktop.prototype.connectToBleatooth = function () {
+        console.log('Connecting to Bluetooth.');
+    };
+    return Desktop;
+}(Computer));
+var Laptop = /** @class */ (function (_super) {
+    __extends(Laptop, _super);
+    function Laptop() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // We can add extra functionality to this class   
+    Laptop.prototype.fold = function () { };
+    return Laptop;
+}(Computer));
+var Walltop = /** @class */ (function (_super) {
+    __extends(Walltop, _super);
+    function Walltop() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // We can add extra functionality to this class   
+    Walltop.prototype.hang = function () { };
+    return Walltop;
+}(Computer));
+var SmartPhone = /** @class */ (function (_super) {
+    __extends(SmartPhone, _super);
+    function SmartPhone() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // We can add extra functionality to this class   
+    SmartPhone.prototype.screenTouch = function () { };
+    return SmartPhone;
+}(Computer));
+var OldModelComputer = /** @class */ (function (_super) {
+    __extends(OldModelComputer, _super);
+    function OldModelComputer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    // We can add extra functionality to this class
+    OldModelComputer.prototype.legacyMethod = function () {
+    };
+    return OldModelComputer;
+}(Computer));
 // Computer Objects
 var computer1 = new Computer(new Keyboard());
 // Change inpute device dynamically using a setter
 computer1.setInputDevice(new Mouse());
-computer1.setInputDevice(new Keyboard());
 // Access the value of a private field using a getter
-computer1.setInputDevice(new Mouse());
 console.log(computer1.getInputDevice());
+// Tests
 function testComputer(computer) {
     computer.input();
-    // computer.retrieve("name");
-    // computer.output(computer.category);
-    // computer.connectToWIFI();
-    // computer.connectToBluetoothDevice();
+    computer.process();
+    computer.store("any thing");
+    computer.retrieve("name");
+    computer.output("just");
 }
 testComputer(computer1);
