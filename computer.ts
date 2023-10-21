@@ -1,16 +1,3 @@
-// SRP => A class should have only one reason to change
-// DIP => A High level module should not depend on a Low Level module,
-    // instead both should depend on abstraction
-
-/*
-    Computer class:
-    - Can input data
-    - can store & retrieve data to memory
-    - can process data
-    - Can output data
-    - can connect to WI-FI
-    - can connect bluetooth device
-*/
 
 abstract class InputDevice{
     abstract input(): any;
