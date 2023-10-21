@@ -39,3 +39,28 @@ Sprint_01:
 
 Sprint_02:
   # Sprint Goal: Implementing the Singleton Design Pattern
+
+  # The Problem:
+    # It was identified that with the current design model, none of the manufctured computer is secure.
+      # In the recent survey conducted by the Computer Manufacturing company, 
+      # it was established that security contributed 99.9 of the features the Computer buyers 
+      # would like the compony to mainly focus on.
+
+  # Proposal:
+    # The Computer manufacturing Company has proposed adding a new feature to handle 
+      # user Authentication, Authorisation, permissions and Security.
+    # Below is a list of requirements for the Proposed Feature.
+
+  # Requirements:
+    - The New feature (Component) to be added to the computer Model should be called IAMlogger
+      # IAM stands for Identification and Authentication Manaagement
+    - All Computers to be produced going forward must be secured with the IAMlogger
+    - The IAMlogger should allow creation of more that one User Account
+    - The IAMlogger should have login and logout provisioned.
+    - However, the Strongest condition is,
+      The IAMlogger should allow only and only One User at a time to Login and Use the computer.
+      I.e. In case of two registered users, UserA and UserB, If userA logs into the copmuter system,
+      then UserB can only login into the same Computer 
+      after UsserA has successfully logged out of the Computer.
+
+ 
