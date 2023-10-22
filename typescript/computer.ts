@@ -52,8 +52,7 @@ export default class Computer{
     }
 
     // Control Output Devices
-    output(information: any){
-        console.log(information);
+    output(data: any){
     }
 }
 
