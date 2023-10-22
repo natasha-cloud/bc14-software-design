@@ -55,7 +55,8 @@ Sprint_02:
     - The New feature (Component) to be added to the computer Model should be called IAMlogger
       # IAM stands for Identification and Authentication Manaagement
     - All Computers to be produced going forward must be secured with the IAMlogger
-    - The IAMlogger should allow creation of more that one User Account
+    - The IAMlogger should allow creation/registration of more that one User Account
+    - Upon Account creation, a user is required to submit their username and password
     - The IAMlogger should have login and logout provisioned.
     - However, the Strongest condition is,
       The IAMlogger should allow only and only One User at a time to Login and Use the computer.
@@ -63,4 +64,24 @@ Sprint_02:
       then UserB can only login into the same Computer 
       after UsserA has successfully logged out of the Computer.
 
- 
+Sprint_03:
+  # Sprint Goal: Implementing the Strategy Design Pattern
+
+  # The Problem:
+    # The Copany liked the IAMlogger feature, and its arguebly the mostly liked feature of all the Copmputer features.
+    # The only improvement suggested by the users around the IAMlogger is provision of multiple Authentication options
+    # on top of the "Username and Password Option currently provided.
+
+  # Proposal:
+    # The Computer manufacturing Company has proposed modifying the IAMlogger feature to handle
+      # Multiple user Authentication options.
+    # Below is a list of requirements for the Proposed Feature.
+
+  # Requirements:
+    - Users should be able to signup using their username and password
+    - Users should be able to signup using their email and password
+    - Users should be able to signup using their phonenumber and password
+    - Users should be able to login using their username and password
+    - Users should be able to login using their email and password
+    - Users should be able to login using their phonenumber and password
+
