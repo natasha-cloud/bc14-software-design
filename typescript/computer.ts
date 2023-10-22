@@ -19,12 +19,11 @@ export default class Computer{
 
     private inputDevice:InputDevice;
 
-    // Methods
     constructor(inputDevice:InputDevice){
         this.inputDevice = inputDevice
     }
 
-    // Input
+    // Control Input Devices
     input(){
        this.inputDevice.input();
     }
@@ -37,23 +36,22 @@ export default class Computer{
         return this.inputDevice
     }
 
-    // Process
+    // Control Processing Devices
     process(){
         console.log("process with Intel processor...")
      }
  
 
-    // Store
+    // Control Storage (and Retrieval) Devices
     store(data:any){
         console.log("Storing data into internal memory...");
     }
 
-    // Retrieve
     retrieve(key:string):any{
         console.log("Retrieving data from internal memory...");
     }
 
-    // Output
+    // Control Output Devices
     output(information: any){
         console.log(information);
     }
