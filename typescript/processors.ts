@@ -17,7 +17,7 @@ export class Intel implements Processor{
     }
 
     execute(actions: string[]): boolean {
-        for (let action in actions) {
+        for (let action of actions) {
             console.log(action);
         }
         return true;
@@ -42,7 +42,7 @@ export class AMD implements Processor{
     }
 
     execute(actions: string[]): boolean {
-        for (let action in actions) {
+        for (let action of actions) {
             console.log(action);
         }
         return true;
@@ -67,7 +67,7 @@ export class NVIDIA implements Processor{
     }
 
     execute(actions: string[]): boolean {
-        for (let action in actions) {
+        for (let action of actions) {
             console.log(action);
         }
         return true;

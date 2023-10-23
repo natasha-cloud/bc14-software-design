@@ -13,7 +13,8 @@ var Intel = /** @class */ (function () {
         return ["Action_1: Do A", "Action_2: Do B", "Action_3: Do C", "Action_4: Do D"];
     };
     Intel.prototype.execute = function (actions) {
-        for (var action in actions) {
+        for (var _i = 0, actions_1 = actions; _i < actions_1.length; _i++) {
+            var action = actions_1[_i];
             console.log(action);
         }
         return true;
@@ -39,7 +40,8 @@ var AMD = /** @class */ (function () {
         return ["Action_1: Do A", "Action_2: Do B", "Action_3: Do C", "Action_4: Do D"];
     };
     AMD.prototype.execute = function (actions) {
-        for (var action in actions) {
+        for (var _i = 0, actions_2 = actions; _i < actions_2.length; _i++) {
+            var action = actions_2[_i];
             console.log(action);
         }
         return true;
@@ -65,7 +67,8 @@ var NVIDIA = /** @class */ (function () {
         return ["Action_1: Do A", "Action_2: Do B", "Action_3: Do C", "Action_4: Do D"];
     };
     NVIDIA.prototype.execute = function (actions) {
-        for (var action in actions) {
+        for (var _i = 0, actions_3 = actions; _i < actions_3.length; _i++) {
+            var action = actions_3[_i];
             console.log(action);
         }
         return true;

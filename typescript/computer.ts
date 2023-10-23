@@ -1,5 +1,6 @@
 import { BluetoothSupportedDevice } from "./bluetooth";
 import InputDevice from "./inputDevices"
+import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
 import { WiFiSupportedDevice } from "./WiFi";
@@ -13,17 +14,20 @@ export default class Computer{
     // Hide computer Fields/Properties from the public
         private inputDevice:InputDevice;
         private processor:Processor;
+        private memory:Memory;
         private outputDevice:OutputDevice;
 
 
     // Computer's default settings/configurations using the constructor function.
         constructor(
             inputDevice:InputDevice,
-            processor:Processor, 
+            processor:Processor,
+            memory:Memory,
             outputDevice:OutputDevice
         ){
             this.inputDevice = inputDevice;
             this.processor = processor;
+            this.memory = memory;
             this.outputDevice = outputDevice;
         }
 
@@ -46,6 +50,24 @@ export default class Computer{
             return this.processor.process(data, instructionId);
         }
     
+        setMemory(memory:Memory){
+            this.memory = memory;
+        }
+
+        getMemory(){
+            return this.memory
+        }
+
+
+     // Control Storage Devices
+        store(data: any, key: string){
+            return this.memory.store(data, key);
+        }
+
+        retrieve(key:string):any{
+           return this.memory.retrieve(key);
+        }
+
         setProcessor(processor:Processor){
             this.processor = processor;
         }
@@ -54,15 +76,6 @@ export default class Computer{
             return this.processor
         }
 
-
-     // Control Storage (and Retrieval) Devices
-        store(data:any){
-            console.log("Storing data into internal memory...");
-        }
-
-        retrieve(key:string):any{
-            console.log("Retrieving data from internal memory...");
-        }
 
 
     // Control Output Devices
