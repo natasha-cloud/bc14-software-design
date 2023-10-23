@@ -1,3 +1,3 @@
-export interface BluetoothSupportedDevice{
+export interface BluetoothDevice{
     connectToBleatooth():boolean;
 }

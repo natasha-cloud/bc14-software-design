@@ -1,4 +1,4 @@
-import { BluetoothSupportedDevice } from "./bluetooth";
+import { BluetoothDevice } from "./bluetooth";
 import InputDevice from "./inputDevices"
 import Memory from "./memory";
 import OutputDevice from "./outputDevices";
@@ -93,7 +93,7 @@ export default class Computer{
 }
 
 // Laptop is a Computer that supports WiFi and Bluetooth technologies.
-export class Laptop extends Computer implements WiFiSupportedDevice, BluetoothSupportedDevice{
+export class Laptop extends Computer implements WiFiSupportedDevice, BluetoothDevice{
     connectToWIFI(){
         console.log('Connecting to wifi.');
         return true;
