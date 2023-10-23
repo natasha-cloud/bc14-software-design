@@ -1,8 +1,7 @@
-# Why is it not working
 typescript/computer.js
-./typescript/inputDevices.js
-./typescript/outputDevices.js
-./typescript/WiFi.js
-./typescript/processors.js
-./typescript/memory.js
-./typescript/tests/testComputer.js
+typescript/inputDevices.js
+typescript/outputDevices.js
+typescript/WiFi.js
+typescript/processors.js
+typescript/memory.js
+typescript/tests/testComputer.js
