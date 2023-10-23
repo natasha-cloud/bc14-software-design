@@ -1,1 +1,6 @@
 typescript/computer.js
+typescript/tests/testComputer.js
+typescript/bluetooth.js
+typescript/inputDevices.js
+typescript/outputDevices.js
+typescript/WiFi.js
