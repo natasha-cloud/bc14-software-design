@@ -1,3 +1,3 @@
 export interface BluetoothDevice{
-    connectToBleatooth():boolean;
+    connectToBluetooth():boolean;
 }

@@ -99,7 +99,7 @@ export class Laptop extends Computer implements WiFiSupportedDevice, BluetoothDe
         return true;
     }
 
-    connectToBleatooth(){
+    connectToBluetooth(){
         console.log('Connecting to Bluetooth.');
         return true;
     }
