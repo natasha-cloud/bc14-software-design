@@ -7,8 +7,9 @@ export class Monitor extends OutputDevice{
         console.log("=======================================");
         console.log("Outputing data on the Monitor Screen...");
         console.log("=======================================");
-        console.log("Data:\n");
+        console.log("Data:");
         console.log(data);
+        console.log("=======================================");
         return true;
     }
 }
@@ -18,8 +19,9 @@ export class Projector extends OutputDevice{
         console.log("=======================================");
         console.log("Outputing data on a Projection...");
         console.log("=======================================");
-        console.log("Data:\n");
+        console.log("Data:");
         console.log(data);
+        console.log("=======================================");
         return true;
     }
 }

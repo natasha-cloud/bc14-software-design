@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var computer_1 = require("../computer");
 var inputDevices_1 = require("../inputDevices");
+var outputDevices_1 = require("../outputDevices");
 /**
 Lets Declare an abstract computer objects.
 Because its type is Abstract i.e. Computer,
@@ -9,17 +10,19 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
 **/
 var computer1;
 // Let our computer object now behave like a Laptop Computer
-computer1 = new computer_1.Laptop(new inputDevices_1.Keyboard());
-// Change inpute device dynamically using a setter
+computer1 = new computer_1.Laptop(new inputDevices_1.Keyboard(), new outputDevices_1.Monitor());
+// Change input & output devices dynamically using a setters
 computer1.setInputDevice(new inputDevices_1.Mouse());
+computer1.setOutputDevice(new outputDevices_1.Projector());
 // Access the value of a private field using a getter
 computer1.getInputDevice().input();
+computer1.getOutputDevice().output("OutputData: Bootcamp 14...");
 // Tests
 function testComputer(computer) {
     computer.input();
     computer.process();
     computer.store("any thing");
     computer.retrieve("name");
-    computer.output("just");
+    computer.output("OutputData: Bootcamp 14...");
 }
 testComputer(computer1);
