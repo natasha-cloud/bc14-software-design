@@ -3,7 +3,7 @@ import InputDevice from "./inputDevices"
 import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
-import { WiFiSupportedDevice } from "./WiFi";
+import { WiFiDevice } from "./WiFi";
 
 /**
     The Responsibility of this Computer class is to control other Peripherals.
@@ -93,7 +93,7 @@ export default class Computer{
 }
 
 // Laptop is a Computer that supports WiFi and Bluetooth technologies.
-export class Laptop extends Computer implements WiFiSupportedDevice, BluetoothDevice{
+export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
     connectToWIFI(){
         console.log('Connecting to wifi.');
         return true;

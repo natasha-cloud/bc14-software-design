@@ -4,12 +4,12 @@ export default abstract class InputDevice{
 
 export class Keyboard extends InputDevice{
     input(){
-        console.log("Inputing data from keyboard...");
+        console.log("Inputting data from keyboard...");
     }
 }
 
 export class Mouse extends InputDevice{
     input(){
-        console.log("Inputing data using Mouse...");
+        console.log("Inputting data using Mouse...");
     }
 }

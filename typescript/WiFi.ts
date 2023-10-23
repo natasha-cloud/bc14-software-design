@@ -1,4 +1,4 @@
-export interface WiFiSupportedDevice{
+export interface WiFiDevice{
     connectToWIFI():boolean;
 }
 

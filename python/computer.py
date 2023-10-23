@@ -1,60 +1,70 @@
-from abc import ABC, abstractmethod
+from bluetooth import BluetoothDevice
+from input_devices import InputDevice
+from memory import Memory
+from output_devices import OutputDevice
+from processors import Processor
+from wifi import WiFiDevice
 
-# Abstraction => No details but only rules
-class InputDevice(ABC):
+class Computer:
+    """
+    The responsibility of this Computer class is to control other Peripherals.
+    And control is the only reason why Computer would change.
+    """
 
-    @abstractmethod
-    def input() -> any:
-        pass
-
-
-# Implementation => Has the details
-class Mouse(InputDevice):
-    
-    def input(self):
-        print('Inputing data from Mouse...')
-        return {}
-
-class Keyboard(InputDevice):
-    
-    def input(self):
-        print('Inputing data from keyboard')
-        return {}
-
-
-class Computer():
-    # Fields
-    __inputDevice: InputDevice
-
-    # Methods
-    def __init__(self, inputDevice: InputDevice):
-        self.__inputDevice = inputDevice
+    def __init__(self, input_device: InputDevice, processor: Processor, memory: Memory, output_device: OutputDevice):
+        self._input_device = input_device
+        self._processor = processor
+        self._memory = memory
+        self._output_device = output_device
 
     def input(self):
-        return self.__inputDevice.input()
+        self._input_device.input()
 
-    # Setter for input device
-    def set_input_device(self, input_device):
-        self.__input_device = input_device
+    def set_input_device(self, input_device: InputDevice):
+        self._input_device = input_device
 
-    # Getter for input device
     def get_input_device(self):
-        return self.__input_device
+        return self._input_device
 
-# Computer Objects
-computer1:Computer = Computer(Keyboard())
+    def process(self, data: any, instruction_id: int) -> bool:
+        return self._processor.process(data, instruction_id)
 
-# Change input device dynamically using a setter
-computer1.set_input_device(Mouse())
-computer1.set_input_device(Keyboard())
+    def set_memory(self, memory: Memory):
+        self._memory = memory
 
-# Access the value of a private field using a getter
-computer1.set_input_device(Keyboard())
-print(computer1.get_input_device())
+    def get_memory(self):
+        return self._memory
 
-def test_computer(computer):
-    computer.input()
-    # computer.retrieve("name")
-    # computer.output(computer.category)
+    def store(self, data: any, key: str):
+        return self._memory.store(data, key)
 
-test_computer(computer1)
+    def retrieve(self, key: str):
+        return self._memory.retrieve(key)
+
+    def set_processor(self, processor: Processor):
+        self._processor = processor
+
+    def get_processor(self):
+        return self._processor
+
+    def output(self, data: any):
+        self._output_device.output(data)
+
+    def set_output_device(self, output_device: OutputDevice):
+        self._output_device = output_device
+
+    def get_output_device(self):
+        return self._output_device
+
+
+class Laptop(Computer, WiFiDevice, BluetoothDevice):
+    def connect_to_wifi(self):
+        print('Connecting to wifi.')
+        return True
+
+    def connect_to_bluetooth(self):
+        print('Connecting to Bluetooth.')
+        return True
+
+    def fold(self):
+        print("Folding...")
