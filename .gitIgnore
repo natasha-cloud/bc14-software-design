@@ -3,4 +3,5 @@ typescript/tests/testComputer.js
 typescript/bluetooth.js
 typescript/inputDevices.js
 typescript/outputDevices.js
+typescript/processors.js
 typescript/WiFi.js
