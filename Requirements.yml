@@ -1,0 +1,87 @@
+# REQUIREMENTS SPECIFICATION DOCUMENT
+
+# Objective: Development of a Computer manufacturing simulation system.
+# Each Development Iteration/Cycle/Sprint Specifys new requirements 
+  # to be incrementally added to the computer system.
+
+Sprint_00:
+  # Develop code for a computer system with the following features.
+    - Should be able to input data from a keyBoard.
+    - Should be able to store & retrieve data to & from internal memory.
+    - Should be able to process data using the default processing unit.
+    - Should be able to output data on a built-in screen.
+    - Should be able to connect to WI-FI.
+    - Should be able to connect bluetooth device.
+
+Sprint_01:
+  # Sprint Goal: Implementing the SOLID Design Principles
+
+  # The Problem:
+    # It was discovered that the computer system modeled in the previous iteration was very rigid,
+      # In a sense that it does not accomodate variations in;
+      # data input devices, Storage devices, Processing devices, and output devices.
+
+    # It was also discovered that the computer system modeled in the previous iteration 
+      # forced all computers to support technologies like, WI-Fi, and Bluetooth. 
+      # However, due to numerous demands from customers, 
+        # the compony now intends to manufacture Computers that do not support Wi-Fi and Bluetooth
+        # At relatively lower prices than usual.
+    
+  # Proposal:
+    # You are required to re-model the computer system to be able to fullfil the following requirements
+    - Should with ease support variation in Input devices used for inputing data.
+    - Should with ease support variation in Storage devices used for 
+      storing & retrieving data.
+    - Should with ease support variation in Processing devices used for processing data.
+    - Should with ease support variation in Output devices used for outputing data.
+    - The new model should allow for manufacturing of Computers that do not support the WI-FI technology.
+    - The new model should allow for manufacturing of Computers that do not support the bluetooth technology.
+
+Sprint_02:
+  # Sprint Goal: Implementing the Singleton Design Pattern
+
+  # The Problem:
+    # It was identified that with the current design model, none of the manufctured computer is secure.
+      # In the recent survey conducted by the Computer Manufacturing company, 
+      # it was established that security contributed 99.9 of the features the Computer buyers 
+      # would like the compony to mainly focus on.
+
+  # Proposal:
+    # The Computer manufacturing Company has proposed adding a new feature to handle 
+      # user Authentication, Authorisation, permissions and Security.
+    # Below is a list of requirements for the Proposed Feature.
+
+  # Requirements:
+    - The New feature (Component) to be added to the computer Model should be called IAMlogger
+      # IAM stands for Identification and Authentication Manaagement
+    - All Computers to be produced going forward must be secured with the IAMlogger
+    - The IAMlogger should allow creation/registration of more that one User Account
+    - Upon Account creation, a user is required to submit their username and password
+    - The IAMlogger should have login and logout provisioned.
+    - However, the Strongest condition is,
+      The IAMlogger should allow only and only One User at a time to Login and Use the computer.
+      I.e. In case of two registered users, UserA and UserB, If userA logs into the copmuter system,
+      then UserB can only login into the same Computer 
+      after UsserA has successfully logged out of the Computer.
+
+Sprint_03:
+  # Sprint Goal: Implementing the Strategy Design Pattern
+
+  # The Problem:
+    # The Copany liked the IAMlogger feature, and its arguebly the mostly liked feature of all the Copmputer features.
+    # The only improvement suggested by the users around the IAMlogger is provision of multiple Authentication options
+    # on top of the "Username and Password Option currently provided.
+
+  # Proposal:
+    # The Computer manufacturing Company has proposed modifying the IAMlogger feature to handle
+      # Multiple user Authentication options.
+    # Below is a list of requirements for the Proposed Feature.
+
+  # Requirements:
+    - Users should be able to signup using their username and password
+    - Users should be able to signup using their email and password
+    - Users should be able to signup using their phonenumber and password
+    - Users should be able to login using their username and password
+    - Users should be able to login using their email and password
+    - Users should be able to login using their phonenumber and password
+

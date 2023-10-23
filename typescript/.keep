@@ -1,0 +1,6 @@
+// Backup
+    // public name: string;
+    // public brand: string;
+    // public model: string;
+    // public category: string = "generic";
+    // public internalMemory = {}
