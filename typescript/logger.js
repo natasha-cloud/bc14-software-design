@@ -1,12 +1,11 @@
 // 1. Singleton class
 var IAMlogger = /** @class */ (function () {
-    function IAMlogger(username, password) {
-        IAMlogger.username = username;
-        IAMlogger.password = password;
+    function IAMlogger(user) {
+        IAMlogger.user = user;
     }
-    IAMlogger.login = function (username, password) {
+    IAMlogger.login = function (credentials) {
         if (IAMlogger.instance == null) {
-            var myLogger = new IAMlogger(username, password);
+            var myLogger = new IAMlogger(credentials['data']);
             IAMlogger.instance = myLogger;
         }
         return IAMlogger.instance;
@@ -18,19 +17,17 @@ var IAMlogger = /** @class */ (function () {
         return IAMlogger.instance;
     };
     IAMlogger.getUserDetails = function () {
-        return {
-            username: IAMlogger.username,
-            password: IAMlogger.password
-        };
+        return IAMlogger.user;
     };
     IAMlogger.instance = null;
+    IAMlogger.user = null;
     return IAMlogger;
 }());
-IAMlogger.login("senjack", "password");
+IAMlogger.login({ data: { username: "senjack", password: "password" } });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login("demetira", "demetira1");
+IAMlogger.login({ data: { username: "demetira", password: "demetira1" } });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login("josiah", "sk");
+IAMlogger.login({ data: { username: "josiah", password: "sk" } });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login("hajat", "nisha");
+IAMlogger.login({ data: { username: "hajat", password: "nisha" } });
 console.log(IAMlogger.getUserDetails());
