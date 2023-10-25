@@ -1,18 +1,16 @@
 // 1. Singleton class
 class IAMlogger{
     private static instance:any = null;
-    private static username:string;
-    private static password:string;
+    private static user: any = null;
 
-    private constructor(username:string, password:string){
-        IAMlogger.username = username;
-        IAMlogger.password = password;
+    private constructor(user:any){
+        IAMlogger.user = user;
     }
 
 
-    static login(username:string, password:string){
+    static login(credentials:any){
         if (IAMlogger.instance == null){
-            let myLogger = new IAMlogger(username, password);
+            let myLogger = new IAMlogger(credentials);
             IAMlogger.instance = myLogger;   
         }
         return IAMlogger.instance;
@@ -27,22 +25,19 @@ class IAMlogger{
     }
 
     static getUserDetails(){
-        return {
-            username: IAMlogger.username,
-            password: IAMlogger.password
-        }
+        return IAMlogger.user
     }
 }
 
 
-IAMlogger.login("senjack", "password");
+IAMlogger.login({username:"senjack", password:"password"});
 console.log(IAMlogger.getUserDetails());
 
-IAMlogger.login("demetira", "demetira1");
+IAMlogger.login({username:"demetira", password:"demetira1"});
 console.log(IAMlogger.getUserDetails());
 
-IAMlogger.login("josiah", "sk");
+IAMlogger.login({username:"josiah", password:"sk"});
 console.log(IAMlogger.getUserDetails());
 
-IAMlogger.login("hajat", "nisha");
+IAMlogger.login({username:"hajat", password:"nisha"});
 console.log(IAMlogger.getUserDetails());
