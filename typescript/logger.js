@@ -5,7 +5,7 @@ var IAMlogger = /** @class */ (function () {
     }
     IAMlogger.login = function (credentials) {
         if (IAMlogger.instance == null) {
-            var myLogger = new IAMlogger(credentials['data']);
+            var myLogger = new IAMlogger(credentials);
             IAMlogger.instance = myLogger;
         }
         return IAMlogger.instance;
@@ -23,11 +23,11 @@ var IAMlogger = /** @class */ (function () {
     IAMlogger.user = null;
     return IAMlogger;
 }());
-IAMlogger.login({ data: { username: "senjack", password: "password" } });
+IAMlogger.login({ username: "senjack", password: "password" });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login({ data: { username: "demetira", password: "demetira1" } });
+IAMlogger.login({ username: "demetira", password: "demetira1" });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login({ data: { username: "josiah", password: "sk" } });
+IAMlogger.login({ username: "josiah", password: "sk" });
 console.log(IAMlogger.getUserDetails());
-IAMlogger.login({ data: { username: "hajat", password: "nisha" } });
+IAMlogger.login({ username: "hajat", password: "nisha" });
 console.log(IAMlogger.getUserDetails());
