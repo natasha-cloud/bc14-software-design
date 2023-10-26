@@ -1,9 +1,14 @@
+{}
 import Computer, { Laptop } from "../computer";
 import { Keyboard, Mouse } from "../inputDevices";
 import { PrimaryMemory, SecondaryMemory } from "../memory";
 import { Monitor, Projector } from "../outputDevices";
 import { AMD, Intel, NVIDIA } from "../processors";
+<<<<<<< HEAD
+import ComputerFacade, {Display, DVD, Speakers} from "../facade";
+=======
 import {Dell, Lenovo, IBM, HP} from "../brands"
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
 
 /**
@@ -21,6 +26,12 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
     computer1.setProcessor(new AMD());
     computer1.setMemory(new SecondaryMemory());
     computer1.setOutputDevice(new Projector());
+
+// Setting a movie System
+    computer1.setMovieSystem(new ComputerFacade(new Display(), new DVD(), new Speakers()));
+    
+
+
 
 // Access the value of a private field using a getter
     computer1.getInputDevice().input();
@@ -41,4 +52,11 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
     testComputer(computer1);
 
 
+<<<<<<< HEAD
+// Test movie System
+let movieSytem = computer1.getMovieSystem()
+movieSytem.watchMovie("The Chronicles of the Ground Breakers")
+
+=======
     
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd

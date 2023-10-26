@@ -4,8 +4,12 @@ import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
 import { WiFiDevice } from "./WiFi";
+<<<<<<< HEAD
+import ComputerFacade from "./facade"
+=======
 import Brand, {HP, Dell, IBM, Lenovo } from "./brands";
 
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 /**
     The Responsibility of this Computer class is to control other Peripherals.
     And control is the only rason why Coputer would change.
@@ -17,7 +21,11 @@ export default class Computer{
         private processor:Processor;
         private memory:Memory;
         private outputDevice:OutputDevice;
+<<<<<<< HEAD
+        private movieSytem:ComputerFacade
+=======
         private brand:Brand;
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
 
     // Computer's default settings/configurations using the constructor function.
@@ -26,7 +34,11 @@ export default class Computer{
             processor:Processor,
             memory:Memory,
             outputDevice:OutputDevice,
+<<<<<<< HEAD
+            
+=======
             brand:Brand
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
         ){
             this.inputDevice = inputDevice;
             this.processor = processor;
@@ -47,6 +59,19 @@ export default class Computer{
         getInputDevice(){
             return this.inputDevice
         }
+<<<<<<< HEAD
+
+       
+    // control the movie system
+    setMovieSystem(movieSytem:ComputerFacade){
+        this.movieSytem = movieSytem
+    }
+
+    getMovieSystem(){
+        return this.movieSytem
+    }
+
+=======
         // Creating method boot 
 
         boot(){
@@ -54,6 +79,7 @@ export default class Computer{
         }
 
     
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
     // Control Processing Devices
         process(data:any, instructionId:number): boolean{
@@ -101,6 +127,7 @@ export default class Computer{
             return this.outputDevice;
         }
 }
+
 
 // Laptop is a Computer that supports WiFi and Bluetooth technologies.
 export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
