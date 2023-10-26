@@ -1,12 +1,14 @@
-from computer import Computer, Laptop
+from computer import Computer, Laptop,Desktop
 from input_devices import Keyboard, Mouse
 from memory import PrimaryMemory, SecondaryMemory
 from output_devices import Monitor, Projector
 from processors import AMD, Intel, NVIDIA
+from brands import Dell
 
 computer1: Computer = None
 
-computer1 = Laptop(Keyboard(), Intel(), PrimaryMemory(), Monitor())
+computer1 = Laptop(Keyboard(), Intel(), PrimaryMemory(), Monitor(),Dell())
+
 
 computer1.set_input_device(Mouse())
 computer1.set_processor(AMD())
@@ -20,6 +22,7 @@ print(computer1.get_memory().retrieve("key1"))
 computer1.get_output_device().output("OutputData: Bootcamp 14...")
 
 def test_computer(computer: Computer):
+    computer.boot()
     computer.input()
     computer.process("data to be processed", 918273645)
     computer.store("Also!, This is data in memory", "key2")
