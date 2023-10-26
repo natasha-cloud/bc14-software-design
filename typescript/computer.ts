@@ -4,6 +4,7 @@ import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
 import { WiFiDevice } from "./WiFi";
+import Brand, {HP, Dell, IBM, Lenovo } from "./brands";
 
 /**
     The Responsibility of this Computer class is to control other Peripherals.
@@ -16,6 +17,7 @@ export default class Computer{
         private processor:Processor;
         private memory:Memory;
         private outputDevice:OutputDevice;
+        private brand:Brand;
 
 
     // Computer's default settings/configurations using the constructor function.
@@ -23,12 +25,14 @@ export default class Computer{
             inputDevice:InputDevice,
             processor:Processor,
             memory:Memory,
-            outputDevice:OutputDevice
+            outputDevice:OutputDevice,
+            brand:Brand
         ){
             this.inputDevice = inputDevice;
             this.processor = processor;
             this.memory = memory;
             this.outputDevice = outputDevice;
+            this.brand = brand;
         }
 
     // Control Input Devices
@@ -43,6 +47,12 @@ export default class Computer{
         getInputDevice(){
             return this.inputDevice
         }
+        // Creating method boot 
+
+        boot(){
+            this.brand.boot();
+        }
+
     
 
     // Control Processing Devices
@@ -109,3 +119,33 @@ export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
         console.log("Folding...");       
     }
 }
+
+//1. Desktop
+
+class Desktop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+//3. Walltop 
+class Walltop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+class Palmtop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+ 
+}
+
+class Tablet extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+
+
+// acess methods
+
+
+
