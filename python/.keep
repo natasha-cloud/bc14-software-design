@@ -1,0 +1,10 @@
+Please note that Python's type hints and abstract base classes provide some, but not all, of the functionality of TypeScript interfaces. Python is a dynamically-typed language, and while MyPy and similar tools can provide static type checking, they cannot enforce type checking at runtime like TypeScript can. If you need to enforce the structure of data at runtime, you may want to use a tool like Pydantic or dataclasses, or manually implement runtime type checking in your code lynn-kwong.medium.com.
+
+
+
+# from typing import Protocol
+
+# class WifiDevice(Protocol):
+#     def connect_to_wifi(self) -> bool:
+#         ...
+

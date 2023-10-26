@@ -28,6 +28,22 @@ class Mouse extends InputDevice{
     }
 }
 
+abstract class OutputDevice{
+    abstract output(): any;
+}
+
+class Monitor extends OutputDevice{
+    output(){
+        console.log("Displays data on computer monitor");
+    }
+}
+
+class Speaker extends OutputDevice{
+    output(){
+        console.log("Outputing sound from speaker");
+    }
+}
+
 
 // Supertype / Contract
 class Computer{
@@ -39,10 +55,11 @@ class Computer{
         // public internalMemory = {}
 
     private inputDevice:InputDevice;
-
+    private outputDevice:OutputDevice;
     // Methods
-    constructor(inputDevice:InputDevice){
+    constructor(inputDevice:InputDevice, outputDevice:OutputDevice){
         this.inputDevice = inputDevice
+        this.outputDevice = outputDevice
     }
 
     // Input
@@ -57,6 +74,20 @@ class Computer{
     getInputDevice(){
         return this.inputDevice
     }
+
+
+    // output
+    output(){
+        this.outputDevice.output();
+     }
+ 
+     setOutputDevice(outputDevice:OutputDevice){
+         this.outputDevice = outputDevice;
+     }
+ 
+     getOutputDevice(){
+         return this.outputDevice
+     }
 
     // Process
     process(){
@@ -75,17 +106,17 @@ class Computer{
     }
 
     // Output
-    output(information: any){
-        console.log(information);
-    }
+    // output(information: any){
+    //     console.log(information);
+    // }
 }
 
 interface WiFiSupportedDevice{
-    connectToWIFI();
+    // connectToWIFI();
 }
 
 interface BluetoothSupportedDevice{
-    connectToBleatooth();
+    // connectToBluetooth();
 }
 
 // Is-A Relationship LSP & ISP
@@ -125,20 +156,18 @@ class OldModelComputer extends Computer{
 
 
 // Computer Objects
-let computer1 = new Computer(new Keyboard());
+let computer1 = new Computer(new Keyboard(), new Monitor());
 
 // Change inpute device dynamically using a setter
 computer1.setInputDevice(new Mouse());
+computer1.setOutputDevice(new Speaker());
 
 // Access the value of a private field using a getter
 console.log(computer1.getInputDevice());
-
+console.log(computer1.getOutputDevice());
 // Tests
 function testComputer(computer:Computer){
     computer.input();
-    computer.process();
-    computer.store("any thing");
-    computer.retrieve("name");
-    computer.output("just");
+    computer.output();
 }
 testComputer(computer1);
