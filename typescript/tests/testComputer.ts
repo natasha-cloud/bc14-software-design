@@ -4,7 +4,11 @@ import { Keyboard, Mouse } from "../inputDevices";
 import { PrimaryMemory, SecondaryMemory } from "../memory";
 import { Monitor, Projector } from "../outputDevices";
 import { AMD, Intel, NVIDIA } from "../processors";
+<<<<<<< HEAD
 import ComputerFacade, {Display, DVD, Speakers} from "../facade";
+=======
+import {Dell, Lenovo, IBM, HP} from "../brands"
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
 
 /**
@@ -15,7 +19,7 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
     let computer1:Computer;
 
 // Let our computer object now behave like a Laptop Computer
-    computer1 = new Laptop(new Keyboard(), new Intel(), new PrimaryMemory(), new Monitor());
+    computer1 = new Laptop(new Keyboard(), new Intel(), new PrimaryMemory(), new Monitor(), new Lenovo());
 
 // Change input & output devices dynamically using a setters
     computer1.setInputDevice(new Mouse());
@@ -38,6 +42,7 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
 
 // Test Computer basic functionalities i.e. Input, processing, storage, retrival, and output.
     function testComputer(computer:Computer){
+        computer.boot();
         computer.input();
         computer.process("data to be processed", 918273645);
         computer.store("Also!, This is data in memory", "key2");
@@ -47,7 +52,11 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
     testComputer(computer1);
 
 
+<<<<<<< HEAD
 // Test movie System
 let movieSytem = computer1.getMovieSystem()
 movieSytem.watchMovie("The Chronicles of the Ground Breakers")
 
+=======
+    
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd

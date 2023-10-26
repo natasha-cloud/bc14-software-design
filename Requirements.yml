@@ -68,7 +68,7 @@ Sprint_03:
   # Sprint Goal: Implementing the Strategy Design Pattern
 
   # The Problem:
-    # The Copany liked the IAMlogger feature, and its arguebly the mostly liked feature of all the Copmputer features.
+    # The Company liked the IAMlogger feature, and its arguebly the mostly liked feature of all the Copmputer features.
     # The only improvement suggested by the users around the IAMlogger is provision of multiple Authentication options
     # on top of the "Username and Password Option currently provided.
 
@@ -84,4 +84,46 @@ Sprint_03:
     - Users should be able to login using their username and password
     - Users should be able to login using their email and password
     - Users should be able to login using their phonenumber and password
+
+Sprint_04:
+  # Sprint Goal: Implementing the Bridge Design Pattern
+
+  # The Problem:
+    # It has been realized that the Computer model has been extended several times to create more granular and specific computer types
+    # However, these extensions have become a real hell. They are very many and managing then is becoming a hard nut to crack.
+    # It has been identified that most of the extensions are based on two main fctors combined. 
+    # i.e. Computer Standard types and Computer brands. Below is a list of some of the currently existing computer extensions.
+
+      # HPdesktopComputer
+      # HPlaptopComputer
+      # HPwalltopComputer
+      # HPtabletComputer
+      # HPpalmtopComputer
+
+      # DellDesktopComputer
+      # DellLaptopComputer
+      # DellWalltopComputer
+      # DellTabletComputer
+      # DellPalmtopComputer
+
+      # LenovoDesktopComputer
+      # LenovoLaptopComputer
+      # LenovoWalltopComputer
+      # LenovoTabletComputer
+      # LenovoPalmtopComputer
+
+      # IBMdesktopComputer
+      # IBMlaptopComputer
+      # IBMwalltopComputer
+      # IBMtabletComputer
+      # IBMpalmtopComputer
+
+  # Proposal:
+    # The Computer manufacturing Company has proposed re-thinking the Computer extension approach,
+    # to still cater for Standard computer types like Desktop, Laptop, Walltop, Tablet and Palmtop,
+    # to also cater for all the major computer Brands like HP, Dell, Lenovo and IBM.
+    # NB. The new Computer Extension approach should not kill the general spirit of Computer extension.
+
+  # Requirements:
+    - At the end of it all, Standard Computer Types should vary independently from major Computer Brands.
 
