@@ -4,7 +4,12 @@ import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
 import { WiFiDevice } from "./WiFi";
+<<<<<<< HEAD
+import ComputerFacade from "./facade"
+=======
+import Brand, {HP, Dell, IBM, Lenovo } from "./brands";
 
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 /**
     The Responsibility of this Computer class is to control other Peripherals.
     And control is the only rason why Coputer would change.
@@ -16,6 +21,11 @@ export default class Computer{
         private processor:Processor;
         private memory:Memory;
         private outputDevice:OutputDevice;
+<<<<<<< HEAD
+        private movieSytem:ComputerFacade
+=======
+        private brand:Brand;
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
 
     // Computer's default settings/configurations using the constructor function.
@@ -23,12 +33,18 @@ export default class Computer{
             inputDevice:InputDevice,
             processor:Processor,
             memory:Memory,
-            outputDevice:OutputDevice
+            outputDevice:OutputDevice,
+<<<<<<< HEAD
+            
+=======
+            brand:Brand
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
         ){
             this.inputDevice = inputDevice;
             this.processor = processor;
             this.memory = memory;
             this.outputDevice = outputDevice;
+            this.brand = brand;
         }
 
     // Control Input Devices
@@ -43,7 +59,27 @@ export default class Computer{
         getInputDevice(){
             return this.inputDevice
         }
+<<<<<<< HEAD
+
+       
+    // control the movie system
+    setMovieSystem(movieSytem:ComputerFacade){
+        this.movieSytem = movieSytem
+    }
+
+    getMovieSystem(){
+        return this.movieSytem
+    }
+
+=======
+        // Creating method boot 
+
+        boot(){
+            this.brand.boot();
+        }
+
     
+>>>>>>> b2080d61b0d584f1cf392861b3273c6030f37dbd
 
     // Control Processing Devices
         process(data:any, instructionId:number): boolean{
@@ -92,6 +128,7 @@ export default class Computer{
         }
 }
 
+
 // Laptop is a Computer that supports WiFi and Bluetooth technologies.
 export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
     connectToWIFI(){
@@ -109,3 +146,33 @@ export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
         console.log("Folding...");       
     }
 }
+
+//1. Desktop
+
+class Desktop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+//3. Walltop 
+class Walltop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+class Palmtop extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+ 
+}
+
+class Tablet extends Computer{
+    // we define a constructor  through which we shall pass the desktop benad 
+
+}
+
+
+
+// acess methods
+
+
+
