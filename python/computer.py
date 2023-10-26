@@ -4,6 +4,7 @@ from memory import Memory
 from output_devices import OutputDevice
 from processors import Processor
 from wifi import WiFiDevice
+from brands import Brand
 
 class Computer:
     """
@@ -11,11 +12,12 @@ class Computer:
     And control is the only reason why Computer would change.
     """
 
-    def __init__(self, input_device: InputDevice, processor: Processor, memory: Memory, output_device: OutputDevice):
+    def __init__(self, input_device: InputDevice, processor: Processor, memory: Memory, output_device: OutputDevice,brand:Brand):
         self._input_device = input_device
         self._processor = processor
         self._memory = memory
         self._output_device = output_device
+        self._brand = brand
 
     def input(self):
         self._input_device.input()
@@ -55,16 +57,23 @@ class Computer:
 
     def get_output_device(self):
         return self._output_device
+    
+    def boot(self):
+        self._brand.boot()
+    
 
 
-class Laptop(Computer, WiFiDevice, BluetoothDevice):
-    def connect_to_wifi(self):
-        print('Connecting to wifi.')
-        return True
+class Desktop(Computer):
+    pass
+class Laptop(Computer):
+    pass
+ 
+class Walltop(Computer):
+    pass
 
-    def connect_to_bluetooth(self):
-        print('Connecting to Bluetooth.')
-        return True
+# Usage
 
-    def fold(self):
-        print("Folding...")
+
+
+
+
