@@ -1,8 +1,10 @@
+{}
 import Computer, { Laptop } from "../computer";
 import { Keyboard, Mouse } from "../inputDevices";
 import { PrimaryMemory, SecondaryMemory } from "../memory";
 import { Monitor, Projector } from "../outputDevices";
 import { AMD, Intel, NVIDIA } from "../processors";
+import ComputerFacade, {Display, DVD, Speakers} from "../facade";
 
 
 /**
@@ -21,6 +23,12 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
     computer1.setMemory(new SecondaryMemory());
     computer1.setOutputDevice(new Projector());
 
+// Setting a movie System
+    computer1.setMovieSystem(new ComputerFacade(new Display(), new DVD(), new Speakers()));
+    
+
+
+
 // Access the value of a private field using a getter
     computer1.getInputDevice().input();
     computer1.getProcessor().process("data to be processed", 192837465);
@@ -37,3 +45,9 @@ it can polymorphically take-on all sub-types of computer, like Laptop, e.t.c.
         computer.output("OutputData: Bootcamp 14...");
     }
     testComputer(computer1);
+
+
+// Test movie System
+let movieSytem = computer1.getMovieSystem()
+movieSytem.watchMovie("The Chronicles of the Ground Breakers")
+

@@ -4,7 +4,7 @@ import Memory from "./memory";
 import OutputDevice from "./outputDevices";
 import Processor from "./processors";
 import { WiFiDevice } from "./WiFi";
-
+import ComputerFacade from "./facade"
 /**
     The Responsibility of this Computer class is to control other Peripherals.
     And control is the only rason why Coputer would change.
@@ -16,6 +16,7 @@ export default class Computer{
         private processor:Processor;
         private memory:Memory;
         private outputDevice:OutputDevice;
+        private movieSytem:ComputerFacade
 
 
     // Computer's default settings/configurations using the constructor function.
@@ -23,7 +24,8 @@ export default class Computer{
             inputDevice:InputDevice,
             processor:Processor,
             memory:Memory,
-            outputDevice:OutputDevice
+            outputDevice:OutputDevice,
+            
         ){
             this.inputDevice = inputDevice;
             this.processor = processor;
@@ -43,7 +45,17 @@ export default class Computer{
         getInputDevice(){
             return this.inputDevice
         }
-    
+
+       
+    // control the movie system
+    setMovieSystem(movieSytem:ComputerFacade){
+        this.movieSytem = movieSytem
+    }
+
+    getMovieSystem(){
+        return this.movieSytem
+    }
+
 
     // Control Processing Devices
         process(data:any, instructionId:number): boolean{
@@ -91,6 +103,7 @@ export default class Computer{
             return this.outputDevice;
         }
 }
+
 
 // Laptop is a Computer that supports WiFi and Bluetooth technologies.
 export class Laptop extends Computer implements WiFiDevice, BluetoothDevice{
